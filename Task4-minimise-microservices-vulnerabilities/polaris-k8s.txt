@@ -1,0 +1,33 @@
+==== POLARIS - install - method one
+
+Polaris is an open source policy engine for Kubernetes that validates and remediates resource configuration. 
+
+#a - Install brew
+
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.bashrc
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+#b - Install Packages
+sudo apt-get install build-essential
+source .bashrc
+
+#c - Install brew
+brew install FairwindsOps/tap/polaris
+
+
+==== POLARIS - install - method two
+
+curl -L "https://github.com/FairwindsOps/polaris/releases/download/7.0.1/polaris_linux_amd64.tar.gz" > polaris.tar.gz
+tar -xvf polaris.tar.gz
+sudo mv polaris /usr/local/bin/
+
+ 
+======= Usage
+polaris version
+polaris audit --audit-path /path-to-k8s-yaml-files/ --format=pretty
+
+
+Polaris can also audit existing workload in your cluster. 
+
+polaris audit --format=pretty
