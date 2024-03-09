@@ -20,6 +20,7 @@ brew install FairwindsOps/tap/polaris
 #4 - Usage
 polaris version
 polaris audit --audit-path /path-to-k8s-yaml-files/ --format=pretty
+polaris fix --files-path /path-to-k8s-yaml-files/ --checks=all
 
 
 
